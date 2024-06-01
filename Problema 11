@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{float}
+
+\title{Problema 11}
+\author{emilio.bustamante.lira }
+\date{May 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduccion}
+El proposito del siguiente trabajo es aplicar las distintas reglas de integracion para estimar el valor de la integral definida de una funcion. Sea la funcion $$f(x)=4x ln(x)+\frac{cos(x-3)}{\sqrt{1+x^2}}$$
+Se debe estimar la integral en el intervalo $[0.2, 2.6]$ con 12, 24 y 36 subintervalos. Despues se compararan los resultados con las tres reglas de integracion. Ulteriormente se aplicara la extrapolacion de Romberg para estimar la integral con una precision de 6 cirfras. 
+\section{Grafica}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{p11.png}
+    \caption{Graficacion del intervalo de integracion}
+    \label{fig:enter-label}
+\end{figure}
+\section{Procedimientos}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{p111.png}
+    \caption{Para 12 subintervalos}
+    \label{fig:enter-label}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{p112.png}
+    \caption{Para 24 subintervalos}
+    \label{fig:enter-label}
+\end{figure}
+
+\end{document}
