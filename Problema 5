@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Formula de Hermite}
+\author{Emilio Bustamante y y Grecia Jared Barajas Vazquez}
+\date{April 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Problema 6}
+Implementar las fórmulas de interpolación de Hermite en una hoja de cálculo para interpolar a partir de datos que incluyen la derivada en los puntos. 
+Sea el siguiente problema.  Un automóvil realiza un recorrido por una carretera recta y se cronometra su recorrido en varios puntos, los cuales se muestran en la siguiente tabla.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        x & f(x) & f´(x) \\
+        \hline
+        3 & 255 & 77 \\
+        5 & 383 & 80 \\
+        8 & 625 & 74 \\
+        13 & 993 & 72 \\
+        \hline
+    \end{tabular}
+    \end{table}
+Estimar la distancia para t = 4s, t = 6.5s, t = 12s
+Obtener las estimaciones con 8 cifras
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Hermite.png} 
+    \caption{Estimaciones elaboradas en excel por los autores.}\\
+    \label{fig:etiqueta_unica}
+\end{figure}
+
+\end{document}
