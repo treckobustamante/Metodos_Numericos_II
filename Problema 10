@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{float}    % Required for the H option
+
+\title{Problema 10}
+\author{emilio.bustamante.lira }
+\date{May 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Introducción}
+El propósito del presente trabajo es emplear las formulas de diferencias finitas para estimar los valores de las derivadas en diferentes puntos de una función tabulada. 
+La función que utilizaremos será $$f(x)=(2x^2-1)+\frac{cos(4x)}{x}$$
+Primero se tabulara la funcion en el intervalo $[0.5,2.3]$ con intervalos de $h = 0.1$, se estimara la primera y segunda derivada en cada punto para $[0.6,2.2]$. Despues se estimara la derivada para $x = 1.5$ con $ h = .1, .05, .0025$ con la formula de diferencia centrada. Por ultimo se extrapolara para aproximar la 1a y 2da derivada de $x = 1.5$ con una precision de 5 digitos.
+\section{Procedimiento}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{p10.png}
+    \caption{Tabla de diferencias}
+    \label{fig:enter-label}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{p101.png}
+    \caption{Excel donde se calcularon las primeras y segundas derivadas}
+    \label{fig:enter-label}
+\end{figure}
+\section{Conclusiones}
+Podemos apreciar que existe un error de .01546 para el caso de x = 1.5 y .01308 para el caso de x = 2.2. 
+Al comparar con la solucion analitica, parece ser un error no muy grande, por lo que puede considerarse una aproximacion aceptable. 
+
+
+\end{document}
