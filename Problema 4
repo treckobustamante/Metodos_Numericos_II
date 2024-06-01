@@ -1,0 +1,168 @@
+\documentclass{article}
+\usepackage{amsmath} % Required for mathematical symbols
+\usepackage{amssymb} % Required for mathematical symbols
+\usepackage{graphicx} % Required for inserting images
+\usepackage{yhmath}
+\usepackage{float}
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+
+\title{Interpolación de Lagrange y Diferencias Divididas}
+\author{Vázquez Barajas Grecia Jared\\Emilio Bustamante Lira}
+\date{March 2024}
+
+\begin{document}
+
+\maketitle
+\section{\textbf{INTERPOLACIÓN DE LAGRANGE}}
+La siguiente tabla muestra el número de casos registrados de VIH en México por año\\
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline
+    $i$ & $x_i$ & $f_i$ & $f^{[1]}$ & $f^{[2]}$ & $f^{[3]}$ & $f^{[4]}$ \\ \hline
+    0 & 2016 & 14.026 & 1.73 & -0.597333 & -0.730041 & 0.350187 \\ \hline
+    1 & 2018 & 17.486 & -0.062 & -3.5175 & 1.371083 & \\ \hline
+    2 & 2019 & 17.424 & -7.097 & 1.966833 & & \\ \hline
+    3 & 2020 & 10.327 & -1.1965 & & & \\ \hline
+    4 & 2022 & 7.934 & & & & \\ \hline
+    \end{tabular}
+\end{table}\\
+
+Empleando interpolación de Lagrange y por diferencias divididas\\
+Estimar el número de casos para los años 2017 y 2021\\
+Construir polinomios de grado 2 y 3 para las estimaciones\\
+\section{Año 2017}
+Tomamos valores cercanos, en este caso: x_0=16, x_1=18, x_2=19\\
+
+Nuestra x=17\\
+\textbf{\textit{Polinomio 2017 de segundo grado}}\\
+\[
+P_2(x) = \frac{{(x - x_1)(x - x_2)}}{{(x_0 - x_1)(x_0 - x_2)}} \cdot y_0 + \frac{{(x - x_0)(x - x_2)}}{{(x_1 - x_0)(x_1 - x_2)}} \cdot y_1 + \frac{{(x - x_0)(x - x_1)}}{{(x_2 - x_0)(x_2 - x_1)}} \cdot y_2
+\]\\
+\[
+P_2(x) = \frac{{(17 - 18)(17 - 19)}}{{(16 - 18)(16 - 19)}} \cdot 14.026 + \frac{{(17 - 16)(17 - 19)}}{{(18 - 16)(18 - 19)}} \cdot 17.486 + \frac{{(17 - 16)(17 - 18)}}{{(19 - 16)(19 - 18)}} \cdot 17.424
+\]\\
+\[
+\begin{aligned}
+P_2(x) &= \frac{{(17 - 18)(17 - 19)}}{{(16 - 18)(16 - 19)}} \cdot 14.026 + \frac{{(17 - 16)(17 - 19)}}{{(18 - 16)(18 - 19)}} \cdot 17.486 \\
+&\quad + \frac{{(17 - 16)(17 - 18)}}{{(19 - 16)(19 - 18)}} \cdot 17.424 \\
+&= \frac{{(-1)(-2)}}{{(-2)(-3)}} \cdot 14.026 + \frac{{(1)(-2)}}{{(2)(-1)}} \cdot 17.486 + \frac{{(1)(-1)}}{{(3)(1)}} \cdot 17.424 \\
+&= \frac{2}{6} \cdot 14.026 + \frac{-2}{-2} \cdot 17.486 + \frac{-1}{3} \cdot 17.424 \\
+&= \frac{1}{3} \cdot 14.026 + 1 \cdot 17.4860 - \frac{1}{6} \cdot 17.424 \\
+&= 4.67533 + 17.4860 - 5.8080 \\
+&= 16.35333
+\end{aligned}
+\]
+\textbf{\textit{Polinomio 2017 de tercer grado}}\\
+\[
+\begin{aligned}
+P_3(x) = &\frac{{(x - x_1)(x - x_2)(x - x_3)}}{{(x_0 - x_1)(x_0 - x_2)(x_0 - x_3)}} \cdot y_0 \\
+&+ \frac{{(x - x_0)(x - x_2)(x - x_3)}}{{(x_1 - x_0)(x_1 - x_2)(x_1 - x_3)}} \cdot y_1 \\
+&+ \frac{{(x - x_0)(x - x_1)(x - x_3)}}{{(x_2 - x_0)(x_2 - x_1)(x_2 - x_3)}} \cdot y_2 \\
+&+ \frac{{(x - x_0)(x - x_1)(x - x_2)}}{{(x_3 - x_0)(x_3 - x_1)(x_3 - x_2)}} \cdot y_3 \\
+\end{aligned}
+\]\\
+\[
+\begin{aligned}
+P_3(x) = &\frac{{(17 - 18)(17 - 19)(17 - 20)}}{{(16 - 18)(16 - 19)(16 - 20)}} \cdot 14.026 \\
+&+ \frac{{(17 - 16)(17 - 19)(17 - 20)}}{{(18 - 16)(18 - 19)(18 - 20)}} \cdot 17.486 \\
+&+ \frac{{(17 - 16)(17 - 18)(17 - 20)}}{{(19 - 16)(19 - 18)(19 - 20)}} \cdot 17.424 \\
+&+ \frac{{(17 - 16)(17 - 18)(17 - 19)}}{{(20 - 16)(20 - 18)(20 - 19)}} \cdot 10.327 \\
+\end{aligned}
+\]\\
+\begin{align*}
+P_3(x) &= \frac{{(17 - 18)(17 - 19)(17 - 20)}}{{(16 - 18)(16 - 19)(16 - 20)}} \cdot 14.026 \\
+&+ \frac{{(17 - 16)(17 - 19)(17 - 20)}}{{(18 - 16)(18 - 19)(18 - 20)}} \cdot 17.486 \\
+&+ \frac{{(17 - 16)(17 - 18)(17 - 20)}}{{(19 - 16)(19 - 18)(19 - 20)}} \cdot 17.424 \\
+&+ \frac{{(17 - 16)(17 - 18)(17 - 19)}}{{(20 - 16)(20 - 18)(20 - 19)}} \cdot 10.327 \\
+&= \frac{{(-1)(-2)(-3)}}{{(-2)(-3)(-4)}} \cdot 14.026 \\
+&+ \frac{{(1)(-2)(-3)}}{{(2)(-1)(-2)}} \cdot 17.486 \\
+&+ \frac{{(1)(-1)(-3)}}{{(3)(1)(-1)}} \cdot 17.424 \\
+&+ \frac{{(1)(-1)(-2)}}{{(4)(2)(1)}} \cdot 10.327 \\
+&= 3.5065 + 26.229 - 17.424 + 2.581 \\
+&= 14.8925
+\end{align*}
+
+\textbf{\textit{Polinomio 2021 de segundo grado}}\\
+Tomamos valores cercanos, en este caso: $x_0$=19, $x_1$=20, $x_2$=22\\
+
+Nuestra x=21\\
+\[
+P_2(x) = \frac{{(x - x_1)(x - x_2)}}{{(x_0 - x_1)(x_0 - x_2)}} \cdot y_0 + \frac{{(x - x_0)(x - x_2)}}{{(x_1 - x_0)(x_1 - x_2)}} \cdot y_1 + \frac{{(x - x_0)(x - x_1)}}{{(x_2 - x_0)(x_2 - x_1)}} \cdot y_2
+\]\\
+\[
+P_2(x) = \frac{{(21 - 20)(21 - 22)}}{{(19 - 20)(19 - 22)}} \cdot 17.424 + \frac{{(21 - 19)(21 - 22)}}{{(20 - 19)(20 - 22)}} \cdot 10.327 + \frac{{(21 - 19)(21 - 20)}}{{(22 - 19)(22 - 20)}} \cdot 7.934
+\]\\
+\begin{align*}
+P_2(x) &= \frac{{(21 - 20)(21 - 22)}}{{(19 - 20)(19 - 22)}} \cdot 17.424 \\
+&\quad + \frac{{(21 - 19)(21 - 22)}}{{(20 - 19)(20 - 22)}} \cdot 10.327 \\
+&\quad + \frac{{(21 - 19)(21 - 20)}}{{(22 - 19)(22 - 20)}} \cdot 7.934 \\
+&= \frac{{(1)(-1)}}{{(-1)(-3)}} \cdot 17.424 \\
+&\quad + \frac{{(2)(-1)}}{{(1)(-2)}} \cdot 10.327 \\
+&\quad + \frac{{(2)(1)}}{{(3)(2)}} \cdot 7.934 \\
+&= \frac{{-1}}{{3}} \cdot 17.424 + \frac{{-2}}{{-2}} \cdot 10.327 + \frac{{2}}{{6}} \cdot 7.934 \\
+&=  10.327 +2.6446 - 5.808 \\
+&= 7.1636
+\end{align*}\\
+\textbf{\textit{Polinomio 2021 de tercer grado}}\\
+\[
+\begin{aligned}
+P_3(x) = &\frac{{(x - x_1)(x - x_2)(x - x_3)}}{{(x_0 - x_1)(x_0 - x_2)(x_0 - x_3)}} \cdot y_0 \\
+&+ \frac{{(x - x_0)(x - x_2)(x - x_3)}}{{(x_1 - x_0)(x_1 - x_2)(x_1 - x_3)}} \cdot y_1 \\
+&+ \frac{{(x - x_0)(x - x_1)(x - x_3)}}{{(x_2 - x_0)(x_2 - x_1)(x_2 - x_3)}} \cdot y_2 \\
+&+ \frac{{(x - x_0)(x - x_1)(x - x_2)}}{{(x_3 - x_0)(x_3 - x_1)(x_3 - x_2)}} \cdot y_3 \\
+\end{aligned}
+\]\\
+\[
+\begin{aligned}
+P_3(x) = &\frac{{(21 - 19)(21 - 20)(21 - 22)}}{{(18 - 19)(18 - 20)(18 - 22)}} \cdot 17.486 \\
+&+ \frac{{(21 - 18)(21 - 20)(21 - 22)}}{{(19 - 18)(19 - 20)(19 - 22)}} \cdot 17.424 \\
+&+ \frac{{(21 - 18)(21 - 19)(21 - 22)}}{{(20 - 18)(20 - 19)(20 - 22)}} \cdot 10.327 \\
+&+ \frac{{(21 - 18)(21 - 19)(21 - 20)}}{{(22 - 18)(22 - 19)(22 - 20)}} \cdot 7.934 \\
+\end{aligned}
+\]\\
+\begin{align*}
+P_3(x) &= \frac{{(21 - 19)(21 - 20)(21 - 22)}}{{(18 - 19)(18 - 20)(18 - 22)}} \cdot 17.486 \\
+&\quad + \frac{{(21 - 18)(21 - 20)(21 - 22)}}{{(19 - 18)(19 - 20)(19 - 22)}} \cdot 17.424 \\
+&\quad + \frac{{(21 - 18)(21 - 19)(21 - 22)}}{{(20 - 18)(20 - 19)(20 - 22)}} \cdot 10.327 \\
+&\quad + \frac{{(21 - 18)(21 - 19)(21 - 20)}}{{(22 - 18)(22 - 19)(22 - 20)}} \cdot 7.934 \\
+&= \frac{{(2)(1)(-1)}}{{(-1)(-2)(-4)}} \cdot 17.486 \\
+&\quad + \frac{{(3)(1)(-1)}}{{(1)(-1)(-3)}} \cdot 17.424 \\
+&\quad + \frac{{(3)(2)(-1)}}{{(2)(1)(-2)}} \cdot 10.327 \\
+&\quad + \frac{{(3)(2)(1)}}{{(4)(3)(2)}} \cdot 7.934 \\
+&= \frac{{1}}{{4}} \cdot 17.486 + \frac{{-3}}{{3}} \cdot 17.424 + \frac{{-6}}{{-4}} \cdot 10.327 + \frac{{6}}{{24}} \cdot 7.934 \\
+&= 4.3715 -  17.424 + 15.4905 + 1.9835 \\
+&= 4.4215
+\end{align*}
+\section{\textbf{DIFERENCIAS DIVIDIDAS}}\\
+
+\textbf{\textit{Diferencias divididas 2do grado para 2017 y 2021}}\\
+Dada la tabla del inicio:\\
+Con x=17\\
+$P_2$(x)= f[$x_0$] + f[$x_0$, $x_1$](x - $x_0$) + f[$x_0$, $x_1$, $x_2$](x - $x_0$)(x - $x_1$)\\
+
+\textbf{GRADO 2}\\
+$P_2$(17)= 14.026 + 1.73(17 - 16) + (-0.597333)(17 - 16)(17 - 18)= 16.35333\\
+$P_2$(21)=14.026 + 1.73(21 - 16) + (-0.597333)(21 - 16)(21 - 18) = 13.716005\\
+
+$P_3$(x) = f[$x_0$] + f[$x_0$, $x_1$](x - $x_0$) + f[$x_0$, $x_1$, $x_2$](x - $x_0$)(x - $x_1$) + f[$x_0$, $x_1$, $x_2$, $x_3$](x - $x_0$)(x - $x_1$)(x - $x_2$)\\
+
+
+\textbf{GRADO 3}\\
+$P_3$(17)= 14.026 + 1.73(17 - 16) + (-0.597333)(17 - 16)(17 - 18) + (-0.730041) (17 - 16) (17 - 18) (17 - 19) = 14.893248\\
+$P_3$(21)= 14.026 + 1.73(21 - 16) + (-0.597333)(21 - 16)(21 - 18) + (-0.730041) (21 - 16) (21 - 18) (21 - 19) = -8.185225 \\
+\section{CONCLUSIONES}
+Tenemos que en el polinomio de Lagrange para 2do grado hay un valor de aproximación de contagios en 2017 de 16.35333 y en 2021 de 7.1636. y para el polinomio de 3er grado en 2017 de 14.8925 y 2021 4.4215, como se puede observar, hay cierta "mejora" respecto a las aproximaciones en contagios, dado el tiempo transcurrido y casos ocurridos. Son buenos valores, más no exactos.
+
+
+\begin{figure}[h]
+        \centering
+        \includegraphics[width=0.8\linewidth]{Lagrange1.png}
+
+        \caption{Graficas de las ecuaciones. 
+            Generado en GeoGebra 3D por los autores.}
+         \label{fig:etiqueta_unica}
+    \end{figure}
+\end{document}
