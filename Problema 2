@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\title{Metodo de Newton-Raphson}
+\author{Emilio Bustamante Lira y Grecia Jared Barajas Vazquez}
+
+
+\begin{document}
+
+\maketitle
+\textbf{Generalizar el metodo de Newton para resolver un sistema de ecuaciones no lineales
+}
+
+\section{Graficar las funciones}
+\\\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Metodo de Newton.jpeg} % Ajusta el nombre de tu imagen y el ancho según sea necesario
+    \caption{Grafica de las ecuaciones. }\\
+    \label{fig:etiqueta_unica}
+\end{figure}}
+
+
+
+
+
+\section {Elegir puntos iniciales}
+Desplazamientos sucesivos en la imagen generada por Geogebra nos muestra que es parcialmente preciso elegir como $(x, y, z)$ al punto $$(-1.33, -.76, 2.14)$$
+
+\section{ Calcular el error relativo con la normal espectral}
+}
+
+Tenemos $$f1(x, y, z) = x^2+y+2z^2-10=0$$ $$f2(x, y, z)= 5x-6y+z=0$$ $$f3(x, y, z)=z-x^2-y^2=0$$\\
+
+El primer paso de nuestro procedimiento es calcular $F(X)$ con nuestro punto inicial:
+$$(-1.28)^2+(-.74)+2(2.15)^2-10=0.1434$$
+$$5(-1.28)-6(-.74)+2.15=0.19$$
+$$(2.15)-(-1.28)^2-((-.74)^2)=-0.036$$.
+El segundo paso consiste en calcular el error relativo del vector con la norma espectral:
+$$\norm{<0.1434, 0.19, -0.036>}_\infty = .19$$\\
+
+
+
+
+\section{ Estimar la solucion con una tolerancia de .0005}\\
+}
+
+Los epilogismos realizados hasta ahora solo fueron en torno al primer punto. Pero al generalizar el metodo de Newton de forma que reciba como argumentos varias variables y vectores, entonces tenemos la formula: $$X^{k+1}=X^{k}-(J(X^{k})^{-1}F(X^{k})$$ donde se tiene que calcular la inversa de la Jacobiana. A continuacion presentamos los calculos realizados en excel\\
+ 
+  
+\section{  \centering
+    \includegraphics[width=0.8\linewidth]{Metodo de Newton Excel.jpeg}\\ \caption{Valores hasta la convergencia al punto de tolerancia realizado con excel por los autores}\\
+ }
+
+Podemos concluir que los puntos de solucion aproximada sera: $$(x, y, z) = (-1.27624, -0.70849, 2.13075)$$
+
+
+
+
+
+
+\end{document}
