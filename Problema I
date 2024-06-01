@@ -1,0 +1,84 @@
+Problema 1
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+
+\title{Metodo del punto fijo}
+\author{Emilio Bustamante}
+
+
+\begin{document}
+
+\maketitle
+
+
+\textit{Resolver el siguiente sistema por el metodo del punto fijo $$f1(x,y)=x^2-y-2=0$$ $$f2(x,y)=2xy-3=0$$}
+\textit{1.- Graficar las funciones}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Grafica de Punto Fijo.png} % Ajusta el nombre de tu imagen y el ancho según sea necesario
+    \caption{Grafica de las ecuaciones. 
+    Generado en Python por el autor.}\\
+    \label{fig:etiqueta_unica}
+\end{figure}
+
+
+
+
+\textit{2.- Obtener las formas iterativas. Sumar $-4x$ a $f1$ y $-5y$ a cada lado de $f2$.}
+
+
+
+Agreguemos primero  $-4x$ a $f1$:
+$$x^2-y-2-4x=-4x$$ y despejamos $x$: $$x=\frac{-x^2+4x+y+2}{4}$$
+Ulteriormente agregamos $-5y$ a cada lado de $f2$: $$2xy-3-5y=-5y$$ y despejamos $y$: $$y=\frac{-2xy+3+5y}{5}$$
+Por lo tanto, obtenemos las formas iterativas: $$f1(x^k,y^k)=x^{k+1}=\frac{-(x^k)^2+4x+(y^k)+2}{4}$$ y $$f2(x^k,y^k)=y^{k+1}=\frac{-(2x^k)y^k+5y^k+3}{5}$$
+
+\textit{3.- Elegir el punto inicial}\\
+Un analisis visual de la grafica nos muestra que la interseccion 1 (en adelante $I1$) no existe. Por otra parte, la interseccion 2 denotada con $I2$: $I2=(1.9,.8)$. Podemos elegir como punto inicial, por lo tanto:
+
+$$I2=(1.9,.8)$$
+Proponemos empezar nuestro analisis con el punto $I2=(1.9, .8)$.
+
+
+
+
+\textit{4.-Verificar convergencia mediante M:}\\
+Las formas iterativas $$g1=f1(x^k,y^k)=x^{k+1}=\frac{-(x^k)^2+4x+(y^k)+2}{4}$$ y $$g2=f2(x^k,y^k)=y^{k+1}=\frac{-(2x^k)y^k+5y^k+3}{5}$$ deben evaluarse desde el punto inicial elegido, a saber, $I=(1.9,.8)$. 
+Para verificar la convergencia se calculan las derivadas parciales. Primero analicemos $g1$:
+La derivada parcial de $g1$ con respecto a $x$: $$\frac{\partial g1}{\partial x}_{(1.9,.8)}=-\frac{2x}{4}+1_{(1.9,.8)}=.05$$. La derivada parcial de $g1$ con respecto a $y$: $$\frac{\partial g1}{\partial y}_{(1.9,.8)}=\frac{1}{4}$$. Al sumar la derivadas parciales: 
+$$\left|\frac{\partial g1}{\partial x}+\frac{\partial g1}{\partial y}\right|_{(1.9,.8)}=\left|.05+\frac{1}{4}\right|=\left|-.6\right|=.6=M<1$$
+Ahora bien, la derivada parcial de $g2$ on respecto a $x$:
+$$\frac{\partial g2}{\partial x}\right|_{(1.9,.8)}=-\frac{2}{5}=-.4$$
+Y la derivada parcial de $g2$ con respecto a $y$:
+$$\frac{\partial g2}{\partial y}\right|_{(1.9, .8)}=.6$$
+
+Al sumar la derivadas parciales: 
+$$\left|\frac{\partial g2}{\partial x}+\frac{\partial g2}{\partial y}\right|_{(1.9,.8)}=\left|.2\right|=.2=M<1$$
+Por lo tanto, podemos concluir que se verifica la convergencia con el puno inicial seleccionado $I$.
+\\
+\\
+
+
+\textit{5.- Resolver con desplazamientos simultaneos y sucesivos}\\
+
+\includegraphics[width=0.5\textwidth]{Metodo punto fijo Iteraciones.png}
+\caption{ Excel}
+\label{fig:2}\\
+
+
+\textit{6.- Calcular el error absoluto con la norma espectral }\\
+
+Como podemos apreciar en la imgane generada con Excel la norma espectral nos arroja el valor de $$.000016$$en las iteraciones simultaneas y en las sucesivas.\\
+\\
+\textit{7.- Estimar la solucion con una tolerancia de .00008}\\
+Si la tolerancia se permite de $.00008$ entonces, podemos aproximar la solucion del sistema bajo el punto inicial $(1.9, .8)$ en los puntos $$(1.69804, .88337)$$ en las iteraciones simultaneas y de $$(1.69804, .88337)$$ en las iteraciones sucesivas, casi identicos.
+
+
+
+
+
+
+
+\end{document}
+$\frac{3}{4}$
