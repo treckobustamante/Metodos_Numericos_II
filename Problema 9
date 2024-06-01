@@ -1,0 +1,112 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{float}    % Required for the H option
+\usepackage{array}    % For better array handling
+
+\title{Problema 9}
+\author{emilio.bustamante.lira }
+\date{May 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduccion}
+Construir un modelo mediante el método de mínimos cuadrados, polinomial y no polinomial, que describa un fenómeno para determinar el mejor ajuste. El fenómeno a describir es el número de casos covid reportados durante los primeros 33 días de la pandemia en México. El trabajo consiste en realizar un ajuste polinomial y potencial para los casos confirmados y polinomial y exponencial para los casos de fallecimiento.  
+
+\section{Graficos}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{p9.png}
+    \caption{Gráfico de dispersión delos casos confirmados polinomiales}
+    \label{fig:enter-label}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{p92.png}
+    \caption{Linealizacion de los casos confirmados}
+    \label{fig:enter-label}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{p93.png}
+    \caption{Dispersión polinomial  de los casos fallecidos}
+    \label{fig:enter-label}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{p94.png}
+    \caption{Linealización de los casos de fallecidos}
+    \label{fig:enter-label}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{p95.png}
+    \caption{Linealización del modelo de exponencial confirmado}
+    \label{fig:enter-label}
+\end{figure}
+
+
+
+\section{Método de Mínimos Cuadrados}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{p91.png}
+    \caption{Matriz solución Polinomial}
+    \label{fig:enter-label}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{P92.png}
+    \caption{Matriz solución Exponencial}
+    \label{fig:enter-label}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{p93.png}
+    \caption{Matriz Solución PotenciaL}
+    \label{fig:enter-label}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{p94.png}
+    \caption{Matriz solución}
+    \label{fig:enter-label}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{P95.png}
+    \caption{Matriz solución}
+    \label{fig:enter-label}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{P96.png}
+    \caption{Matriz solución}
+    \label{fig:enter-label}
+\end{figure}
+
+
+
+
+\section{Conclusiones}
+Presentamos tres modelos para los casos confirmados y cada uno presenta un ajuste con su respectivo error:
+1) Error del modelo polinomial: 196,982,217
+2) Error del modelo potencial: 2,137,673,122
+3) Error del modelo exponencial: 182,229,224,655
+
+Por lo que podemos confirmar que el modelo que mejor se ajusta a los datos es el polinomial. Esto lo podemos verificar en las mismas gráficas, pues ni el modelo potencial ni el exponencial exhibe una adecuación aceptable. 
+Presentamos tres modelos para los casos confirmados y cada uno presenta un ajuste con su respectivo error:
+1) Error del modelo polinomial: 79635.3
+2) Error del modelo potencial: 1.86708E+19
+3) Error del modelo exponencial: 115052
+
+
+Por lo que podemos confirmar que el modelo que mejor se ajusta a los datos es el  modelos polinomial
+
+
+\end{document}
