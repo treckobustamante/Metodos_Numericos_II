@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{float}
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\title{Método de Broyden}
+\author{Emilio Bustamante Lira y Grecia Jared Vázquez Barajas}
+\begin{document}
+
+\maketitle
+
+\textit{Resolver el siguiente sistema de ecuaciones no lineales mediante el método de Broyden}\\
+\textbf{$$f1(x, y, z) = x^2-x+2y^2+yz-10=0$$ $$f2(x, y, z) = 5x-6y+z=0$$ $$f3(x, y, z) = z -x^2-y^2=0$$\\}
+
+\section{ Elaborar la gráfica}
+
+\begin{figure} [H]
+     \centering
+     \includegraphics[width=7cm, height=7cm]
+     {Gráfica1.jpeg}
+     \caption{Gráfica de las funciones dadas}
+     \label{Gráfica}
+    \end{figure}
+
+    \begin{figure} [H]
+     \centering
+     \includegraphics[width=7cm, height=7cm]
+     {Gráfica2.jpeg}
+     \caption{Gráfica de las funciones dadas}
+     \label{Gráfica}
+    \end{figure}
+
+
+
+\section{Elegir los valores iniciales}
+Como se puede apreciar en las gráficas generadas en Geogebra, resulta parcialmente preciso elegir como punto inicial \textbf{$$(x_1, y_1, z_1) = (1, 1.5, 3.5)$$} Observese que el método de Broyden se basa en el método de la secante, por lo que necesita dos puntos determinables. El segundo punto se propone como $$(x_2, y_2, z_2) = (1.1125, 1.51125, 3.5125)$$ ya que se obtuvo a partir de la sustitución de los valores del punto inicial en las ecuaciones originales $f1, f2, f3$ 
+
+\section{ Obtener dos raíces con una tolerancia menor a .0005}
+
+Después de la implementacion en Excel podemos verificar la siguiente tabla:
+
+\begin{figure} [H]
+     \centering
+     \includegraphics[width=16cm, height=6cm]
+     {Tabla.jpeg}
+     \caption{Implementación del método en Excel}
+     \label{Gráfica}
+    \end{figure}
+
+Las raices se eligen como los puntos: $$r_1 = (1.11004, 1.51094, 3.51545)$$ $$r_2 = (1.11009926, 1.510979104, 3.155378323)$$ puesto que en esos puntos intersecan las graficas.
+
+
+\section{ Indicar la solución}
+
+
+La solucion es el punto $$r_1 = (1.11004, 1.51094, 3.51545)$$ 
+
+\section{ Conclusiones}}
+
+Cabe destacar que a pesar de la aparente dificultad de implementación del metodo de Broyden resulta menos costoso que el metodo newtoniano (y derivados) y su convergencia se alcanza rápido. 
+
+\end{document}
